@@ -37,16 +37,11 @@ app = FastAPI(
 )
 
 
-FRONTEND_URL = os.getenv(
-    "FRONTEND_URL",
-    "http://localhost:3000",
-)
-
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        FRONTEND_URL
+        "http://localhost:3000",
+        "https://zoom-clone-front-end-15f8.onrender.com",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -60,11 +55,13 @@ Base.metadata.create_all(
 
 
 app.include_router(
-    auth_router
+    auth_router,
+    prefix="/api/auth",
 )
 
 app.include_router(
-    meetings_router
+    meetings_router,
+    prefix="/api/meetings",
 )
 
 app.include_router(
