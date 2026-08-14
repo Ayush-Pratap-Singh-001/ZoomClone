@@ -51,13 +51,11 @@ Base.metadata.create_all(
 
 
 app.include_router(
-    auth_router,
-    prefix="/api/auth",
+    auth_router
 )
 
 app.include_router(
-    meetings_router,
-    prefix="/api/meetings",
+    meetings_router
 )
 
 app.include_router(
