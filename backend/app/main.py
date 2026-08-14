@@ -1,9 +1,5 @@
-import os
-
 from fastapi import FastAPI
-from fastapi.middleware.cors import (
-    CORSMiddleware,
-)
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.database import (
     Base,
@@ -72,8 +68,7 @@ app.include_router(
 @app.get("/")
 def root():
     return {
-        "message":
-            "ZoomClone API is running"
+        "message": "ZoomClone API is running"
     }
 
 
